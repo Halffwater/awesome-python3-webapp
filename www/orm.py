@@ -47,7 +47,7 @@ async def execute(sql, args, autocommit=True):
 				await conn.commit()
 		except BaseException as e:
 			if not autocommit:
-				awaait conn.rollback()
+				await conn.rollback()
 			raise
 		return affected
 		
@@ -73,7 +73,7 @@ class StringField(Field):
 	def __init__(self, name=None, primary_key=False, default=None, ddl='varchar(100)'):
 		super().__init__(name, ddl, primary_key, default)
 		
-class BooleanField(Field)
+class BooleanField(Field):
 
 	def __init__(self, name=None, default=False):
 		super().__init__(name, 'boolean', False, default)
